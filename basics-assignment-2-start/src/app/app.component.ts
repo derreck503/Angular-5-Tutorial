@@ -9,13 +9,7 @@ export class AppComponent {
   username = '';
   isDisabled = true;
 
-  onUpdate(event: any){
-    if(!event.target.value.null){
-      this.isDisabled = false;
-    }
-  }
-
-  resetField(){
-    this.username = '';
-  }
+  // resetField(){
+  //   this.username = '';
+  // }
 }
