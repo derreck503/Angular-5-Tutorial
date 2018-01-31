@@ -5,7 +5,7 @@
       <br>
       <br>
       <ul class="list-group">
-        <div *ngIf="onlyOdd">
+        <div *appUnless="onlyOdd">
           <li class="list-group-item" *ngFor="let odd of oddNumbers" [ngClass]="{odd: odd % 2 !==0 }" [ngStyle]="{backgroundColor: odd % 2 !== 0 ? 'yellow' : 'transparent'}">
             {{odd}}
           </li>
@@ -15,13 +15,18 @@
             {{even}}
           </li>
         </div>
-
       </ul>
       <p appBasicHighlight>Style me with basic directive!</p>
-      <p appBetterHighlight>Style me with better directive!</p>
+      <p appBetterHighlight defaultColor="yellow" [highlightColor]="'red'" >Style me with better directive!</p>
       <ng-template [ngIf]="onlyOdd">
         <p>Only odd</p>
       </ng-template>
+      <div [ngSwitch]="value">
+        <p *ngSwitchCase="5">Value is 5</p>
+        <p *ngSwitchCase="10">Value is 10</p>
+        <p *ngSwitchCase="100">Value is 100</p>
+        <p *ngSwitchDefault>Value is Default</p>
+      </div>
     </div>
   </div>
 </div>
