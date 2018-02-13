@@ -10,7 +10,7 @@ import { Subscription } from 'rxjs/Subscription';
 })
 export class ShoppingListComponent implements OnInit, OnDestroy {
   ingredients:Ingredient[];
-  private subscription: Subscription
+  private subscription: Subscription;
 
   constructor(private shoppingListService: ShoppingListService) { }
 
@@ -25,6 +25,10 @@ export class ShoppingListComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
+  }
+
+  onEditItem(index: number) {
+    this.shoppingListService.startedEditing.next(index);
   }
 
 }
